@@ -38,9 +38,11 @@ body {
 
 .section {
 
+    width: 100%;
+
     min-height: 100vh;
 
-    display: flex;
+    display: none;
 
     justify-content: center;
 
@@ -50,8 +52,20 @@ body {
 
     padding: 40px 20px;
 
+    overflow-y: auto;
+
 }
 
+
+/* Show only the active section */
+
+.section.active {
+
+    display: flex;
+
+    animation: pageFade 0.8s ease;
+
+}
 
 
 /* ========================= */
@@ -66,16 +80,15 @@ body {
 
         135deg,
 
-        #ff758c,
+        #89CFF0,
 
-        #ff7eb3,
+        #6FADE0,
 
-        #a18cd1
+        #B8E0F2
 
     );
 
 }
-
 
 .intro-content {
 
@@ -146,9 +159,9 @@ button {
 
     border-radius: 50px;
 
-    background: white;
+    background: #ffffff;
 
-    color: #ff5c8a;
+    color: #4A90C2;
 
     font-size: 16px;
 
@@ -164,7 +177,7 @@ button {
 
     0 10px 25px
 
-    rgba(0,0,0,0.15);
+    rgba(0, 70, 120, 0.2);
 
 }
 
@@ -176,6 +189,12 @@ button:hover {
     translateY(-5px)
 
     scale(1.05);
+
+    box-shadow:
+
+    0 15px 30px
+
+    rgba(0, 70, 120, 0.3);
 
 }
 
@@ -193,14 +212,15 @@ button:hover {
 
         135deg,
 
-        #ff9a9e,
+        #5B9BD5,
 
-        #fad0c4
+        #4A90C2,
+
+        #6FADE0
 
     );
 
 }
-
 
 .content-box {
 
@@ -208,13 +228,14 @@ button:hover {
 
     background:
 
-    rgba(255,255,255,0.15);
+    rgba(255,255,255,0.18);
+border: 1px solid rgba(255,255,255,0.25);
 
     padding: 50px;
 
     border-radius: 30px;
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
 
     box-shadow:
 
@@ -268,16 +289,15 @@ button:hover {
 .things-section {
 
     background:
-
     linear-gradient(
-
         135deg,
-
-        #fbc2eb,
-
-        #a6c1ee
-
+        #A7BFE8,
+        #B8B5E8,
+        #C5B9E8
     );
+
+    align-items: flex-start;
+    padding-top: 60px;
 
 }
 
@@ -360,12 +380,11 @@ button:hover {
 
     linear-gradient(
 
-        135deg,
-
-        #667eea,
-
-        #764ba2
-
+	135deg,
+        #8EC5FC 0%,
+        #A6C1EE 30%,
+        #B8B5FF 65%,
+        #D9C2FF 100%
     );
 
 }
@@ -451,26 +470,11 @@ button:hover {
 /* SECRET MESSAGE */
 /* ========================= */
 
-.hidden-message {
-
-    display: none;
-
-    margin-top: 40px;
-
-    animation:
-
-    fadeIn 2s ease;
-
-}
-
-
 .heart-big {
 
-    font-size: 70px;
-
-    animation:
-
-    heartbeat 1.5s infinite;
+    font-size: 75px;
+    animation: heartbeat 1.5s infinite;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.7));
 
 }
 
@@ -714,6 +718,26 @@ button:hover {
     .password-area input {
 
         width: 100%;
+
+    }
+
+}
+
+@keyframes pageFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
 
     }
 

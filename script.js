@@ -1,23 +1,35 @@
 /* ========================= */
-/* SECTION NAVIGATION */
+/* SHOW FIRST PAGE */
+/* ========================= */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    document
+        .getElementById("intro")
+        .classList.add("active");
+
+});
+
+/* ========================= */
+/* PAGE NAVIGATION */
 /* ========================= */
 
 function goToSection(sectionId) {
 
-    const section =
+    const currentSection = document.querySelector(".section.active");
+    const nextSection = document.getElementById(sectionId);
 
-    document.getElementById(sectionId);
+    if (currentSection) {
+        currentSection.classList.remove("active");
+        currentSection.scrollTop = 0;
+    }
 
+    nextSection.classList.add("active");
+    nextSection.scrollTop = 0;
 
-    section.scrollIntoView({
-
-        behavior: "smooth"
-
-    });
+    window.scrollTo(0, 0);
 
 }
-
-
 
 /* ========================= */
 /* PASSWORD SYSTEM */
@@ -25,113 +37,32 @@ function goToSection(sectionId) {
 
 function checkPassword() {
 
-
-    // The secret password
-
     const correctPassword = "25.7.2001";
 
-
-    // Get what the user typed
-
     const enteredPassword =
-
-    document.getElementById(
-
-        "passwordInput"
-
-    ).value;
-
-
-    // Get the message areas
-
-    const secretMessage =
-
-    document.getElementById(
-
-        "secretMessage"
-
-    );
-
+        document.getElementById("passwordInput").value;
 
     const errorMessage =
+        document.getElementById("errorMessage");
 
-    document.getElementById(
-
-        "errorMessage"
-
-    );
-
-
-
-    // Check password
-
-    if (
-
-        enteredPassword ===
-
-        correctPassword
-
-    ) {
-
-
-        // Show secret message
-
-        secretMessage.style.display =
-
-        "block";
-
-
-        // Remove error
+    if (enteredPassword === correctPassword) {
 
         errorMessage.innerHTML = "";
 
-
-        // Scroll to message
-
-        setTimeout(function() {
-
-            secretMessage.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
-
-        }, 300);
-
-
-        // Create hearts
+        goToSection("final");
 
         celebrate();
 
-
-    }
-
-
-    else {
-
-
-        // Wrong password
+    } else {
 
         errorMessage.innerHTML =
+            "Hehe that's why you are a bulb. Try again, birthday boy👀❤️";
 
-        "Hmm... that's not it. Try again, birthday boy. 👀❤️";
-
-
-        // Clear input
-
-        document.getElementById(
-
-            "passwordInput"
-
-        ).value = "";
+        document.getElementById("passwordInput").value = "";
 
     }
 
 }
-
-
 
 /* ========================= */
 /* ENTER KEY PASSWORD */
@@ -199,13 +130,9 @@ function createHeart() {
 
 
     heart.style.fontSize =
-
-    (
-
-        Math.random() * 20 + 15
-
-    ) + "px";
-
+(
+    Math.random() * 10 + 12
+) + "px";
 
     heart.style.animationDuration =
 
@@ -239,11 +166,8 @@ function createHeart() {
 /* Create hearts continuously */
 
 setInterval(
-
     createHeart,
-
-    800
-
+    2000
 );
 
 
@@ -254,19 +178,11 @@ setInterval(
 
 function celebrate() {
 
+    for (let i = 0; i < 12; i++) {
 
-    for (
-
-        let i = 0;
-
-        i < 30;
-
-        i++
-
-    ) {
-
-
-        createHeart();
+        setTimeout(() => {
+            createHeart();
+        }, i * 120);
 
     }
 

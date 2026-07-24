@@ -291,9 +291,9 @@ border: 1px solid rgba(255,255,255,0.25);
     background:
     linear-gradient(
         135deg,
-        #A7BFE8,
-        #B8B5E8,
-        #C5B9E8
+         #6F9FEA,
+        #8C7AE6,
+        #A58BE8
     );
 
     align-items: flex-start;
@@ -326,27 +326,27 @@ border: 1px solid rgba(255,255,255,0.25);
 
 .card {
 
-    background:
+    background: rgba(255,255,255,0.18);
 
-    rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(10px);
 
     padding: 30px;
 
     border-radius: 25px;
 
-    transition: 0.3s;
+    transition: all 0.3s ease;
 
 }
-
 
 .card:hover {
 
-    transform:
+    transform: translateY(-8px);
 
-    translateY(-10px);
+    background: rgba(255,255,255,0.28);
 
 }
-
 
 .card span {
 
@@ -456,15 +456,17 @@ border: 1px solid rgba(255,255,255,0.25);
 
 #errorMessage {
 
-    color: #ffd6e0;
+    color: #4A90E2;
 
     font-size: 14px;
 
     margin-top: 15px;
 
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
 }
-
-
 
 /* ========================= */
 /* SECRET MESSAGE */
@@ -499,8 +501,7 @@ border: 1px solid rgba(255,255,255,0.25);
     font-family:
 
     'Dancing Script',
-
-    cursive;
+cursive;
 
     font-size: 45px !important;
 
@@ -511,13 +512,13 @@ border: 1px solid rgba(255,255,255,0.25);
 
 .signature {
 
-    font-family:
+    font-family: 'Patrick Hand', cursive;
 
-    'Dancing Script',
+    font-size: 25px !important;
 
-    cursive;
+    color: white;
 
-    font-size: 30px !important;
+    margin-top: 20px;
 
 }
 
